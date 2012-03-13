@@ -1,5 +1,5 @@
 def generate_title(page_title)
-  base_title = "coderXcoder"
+  base_title = "Coder x Coder"
   if page_title.empty?
     base_title
   else

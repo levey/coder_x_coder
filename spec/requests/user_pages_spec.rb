@@ -20,11 +20,11 @@ describe "User pages" do
     
     describe "with invalid information" do
       it "should not create a user" do
-        expect { click_button "Create my coderXcoder account" }.not_to change(User, :count)
+        expect { click_button "Create my CXC account" }.not_to change(User, :count)
       end
       
       describe "show error message" do
-        before { click_button "Create my coderXcoder account" }
+        before { click_button "Create my CXC account" }
         
         it { should have_selector('title', :text => "Sign up") }
         it { should have_content('error') }
@@ -41,8 +41,23 @@ describe "User pages" do
       
       it "should create a user" do
         expect do
-          click_button "Create my coderXcoder account"
+          click_button "Create my CXC account"
         end.to change(User, :count).by(1)
+      end
+      
+      describe "after saving the user" do
+        before { click_button "Create my CXC account" }
+        let(:user) { User.find_by_email "user@gmail.com" }
+        
+        it { should have_selector('div.alert.alert-success', :text => "Welcome") }
+        it { should have_link("Sign out") }
+        
+        describe "followed by signout" do
+          before { click_link "Sign out" }
+          it { should have_link("Sign in") }
+          it { should have_link("Sign up") }
+        end
+        
       end
     end
   end  

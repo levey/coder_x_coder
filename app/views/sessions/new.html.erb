@@ -1,0 +1,24 @@
+<%= provide :title, "Sign in" %>
+<ul class="breadcrumb">
+	<li><%= link_to 'Home', root_path %></li>
+	<span class="divider">/</span>
+	<li>Sign in</li>
+</ul>
+<div class="well">
+	<div class="row-fluid">
+		<legend>Sign in CXC</legend>
+		<div class="span-signup">
+			
+			<%= form_for(:session, :url => sessions_path) do |f| %>
+
+				<%= f.label :email %>
+				<%= f.text_field :email, :class => "input-xxlarge input-signup" %><br />				
+				<%= f.label :password %>
+				<%= f.password_field :password, :class => "input-xxlarge input-signup" %><br /><br />
+				<%= f.submit "Sign in", :class => "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+

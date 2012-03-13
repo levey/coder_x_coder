@@ -57,7 +57,16 @@ body {
 }
 
 .gravatar {
+  float: left;
+  margin-right: 10px;
+}
 
+.gravatar-header {
+  float: left;
+  margin-right: 10px;
+	-webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 /* forms */
