@@ -29,7 +29,8 @@ body {
   border-radius: 3px;
   -webkit-box-shadow: inset 0 1px 0 #ffffff;
   -moz-box-shadow: inset 0 1px 0 #ffffff;
-  box-shadow: inset 0 1px 0 #ffffff;}
+  box-shadow: inset 0 1px 0 #ffffff;
+}
 
 .well {
   min-height: 20px;
@@ -51,3 +52,27 @@ body {
     margin-bottom: 10px;
   }
 }
+.input-signup {
+	width: 320px;
+}
+
+.gravatar {
+
+}
+
+/* forms */
+.span-signup {
+	width:330px;
+}
+
+#error_explanation {
+  color:#f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+ }
