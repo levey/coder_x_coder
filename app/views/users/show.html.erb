@@ -1,7 +1,9 @@
 <%= provide(:title, @user.name) %>
 <div class="well">
-	<h1>
-		<%= gravatar_for @user %>
-		<%= @user.name %>
-	</h1>
+	<div class="row-fluid">
+		<h1>
+			<%= gravatar_for @user %>
+			<%= @user.name %>
+		</h1>
+	</div>
 </div>
