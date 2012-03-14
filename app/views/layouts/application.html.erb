@@ -10,12 +10,12 @@
 <%= render 'layouts/header' %>
 <div class="container-wrapper">
 	<div class="container">
-		 <div class="wapper">
-		 	<% flash.each do |key, value| %>
-			<div class="alert alert-<%= key %>"><%= value %> </div>
-			<% end %>
+		<% flash.each do |key, value| %>
+		<div class="alert alert-<%= key %>"><%= value %> </div>
+		<% end %>
+		<div class="wapper">
 			<%= yield %>
-		 </div>
+	  </div>
 	</div>	
 </div>
 

@@ -18,7 +18,17 @@ describe "AuthenticationPages" do
         before { click_link "Sign up" }
         it { should_not have_selector('div.alert.alert-error') }
       end
-      
     end
+    
+    describe "with valid information" do
+      let(:user) { FactoryGirl.create :user }
+      before { sign_in user }
+      
+      it { should have_selector('title', text:user.name) }
+      it { should have_link('Profile', href:user_path(user)) }
+      it { should have_link('Setting', href:edit_user_path(user)) }
+      it { should have_link('Sign out', href:signout_path) }
+    end
+    
   end
 end
