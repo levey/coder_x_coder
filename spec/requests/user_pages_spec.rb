@@ -4,6 +4,7 @@ describe "User pages" do
   
   subject { page }
   
+  # profile
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
     
@@ -13,6 +14,8 @@ describe "User pages" do
     it { should have_selector('h1', text: user.name) }
   end
   
+  
+  # sign up
   describe "signup page" do
     before { visit signup_path }
     
@@ -47,7 +50,7 @@ describe "User pages" do
       
       describe "after saving the user" do
         before { click_button "Create my CXC account" }
-        let(:user) { User.find_by_email "user@gmail.com" }
+        let(:user) { User.find_by_name "Example User" }
         
         it { should have_selector('div.alert.alert-success', text: "Welcome") }
         it { should have_link("Sign out") }
@@ -61,4 +64,23 @@ describe "User pages" do
       end
     end
   end  
+  
+  # setting  
+  
+  describe "setting" do
+    let(:user) { FactoryGirl.create :user }
+    before { visit edit_user_path }
+    
+    describe "page" do
+      it { should have_selector('h1', text:user.name)  }
+      it { should have_selector('title', text:generate_title("setting")) }
+      it { should have_link('Change your avatar at Gravatar.com', 'http://gravatar.com/emails') }
+    end
+    
+    describe "fill in invalid information" do
+      before { click_button "Save" }
+      
+      it { should have_content("error") }
+    end
+  end
 end
