@@ -1,28 +1,65 @@
 <%= provide(:title, @user.name) %>
 
+<% profile = @user.profile %>
+
 <div class="row-fluid">
-	<%= render "avatar" %>	
-	<div class="profile-list">
-		<dl>
-			<dt>Realname</dt>
-			<dd><%= @user.profile.realname %></dd>
-			<dt>Location</dt>
-			<dd><%= @user.profile.location %></dd>
-			<dt>Company</dt>
-			<dd><%= @user.profile.company %></dd>
-			<dt>Github</dt>
-			<dd><%= link_to @user.profile.github, "https://github.com/#{@user.profile.github}" %></dd>
-			<dt>Blog</dt>
-			<dd><%= link_to @user.profile.blog, @user.profile.blog %></dd>
-			<dt>Twitter</dt>
-			<dd><%= link_to "@#{@user.profile.twitter}", "https://twitter.com/#{@user.profile.twitter}" %></dd>
-			<dt>Weibo</dt>
-			<dd><%= link_to "@#{@user.profile.weibo}", "http://weibo.com/#{@user.profile.weibo}" %></dd>
-		</dl>
-	</div>
+	<h1 class="profile-header">
+		<%= gravatar_for @user %>
+		<span><%= @user.name %></span>
+		<% if @user == current_user %>
+			<%= link_to "Edit Profile",edit_profile_path(@user.profile), class: "btn" %>
+		<% end %>
+	</h1>
 	<hr />
-	<%= @user.profile.bio %>
 	
+	<% if profile.realname || profile.location || profile.company || profile.blog || profile.github ||
+		profile.twitter || profile.weibo || profile.bio %>
+		<div class="profile-list">
+			<dl>
+				<% if profile.realname %>
+					<dt>Real Name</dt>
+					<dd><%= profile.realname %></dd>
+				<% end %>
+			
+				<% if profile.location %>
+					<dt>Location</dt>
+					<dd><%= profile.location %></dd>
+				<% end %>
+			
+				<% if profile.company %>
+					<dt>Company</dt>
+					<dd><%= profile.company %></dd>
+				<% end %>
+
+				<% if profile.blog %>
+					<dt>Blog</dt>
+					<dd><%= link_to profile.blog, profile.blog,target: "_blank" %></dd>
+				<% end %>
+
+				<% if profile.github %>
+					<dt>GitHub</dt>
+					<dd><%= link_to profile.github, "https://github.com/#{profile.github}", target: "_blank" %></dd>
+				<% end %>
+
+				<% if profile.twitter %>
+					<dt>Twitter</dt>
+					<dd><%= link_to "@#{profile.twitter}", "https://twitter.com/#{profile.twitter}", target: "_blank" %></dd>
+				<% end %>
+			
+				<% if profile.weibo %>
+					<dt>Weibo</dt>
+					<dd><%= link_to "@#{profile.weibo}", "http://weibo.com/#{profile.weibo}", target: "_blank" %></dd>
+				<% end %>			
+			</dl>
+		</div>
+	
+		<% if profile.bio %>
+			<hr />
+			<%= profile.bio %>	
+		<% end %>
+	<% else %>
+		<span> You have not set up your profiles yet!</span>		
+	<% end %>
 	
 </div>
 

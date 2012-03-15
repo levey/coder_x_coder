@@ -9,8 +9,6 @@ CoderXCoder::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete  
   
-  match '/update_account', to: 'users#edit'
-  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

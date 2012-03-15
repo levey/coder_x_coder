@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user.build_profile unless @user.profile.present?
   end
   
   def create

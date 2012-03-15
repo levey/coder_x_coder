@@ -76,7 +76,22 @@ body {
 	display: inline;
 }
 
+.profile-header {
+	padding-top: 5px;
+}
+
+.profile-header img {
+	margin-top: -5px;
+}
+
+.profile-header a {
+	float:right;
+	margin-top: 6px;
+}
+
+
 .profile-list dl{
+	font-size: 20px;
 	margin:10px;
 	font-size:12px;
 }
@@ -84,7 +99,7 @@ body {
 .profile-list dl dt { 
 	margin:0;
 	float:left;
-	width:115px;
+	width:150px;
 	color:#666;
 }
 
