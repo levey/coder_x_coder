@@ -5,6 +5,13 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+  
+  factory :profile do
+    realname "zhujiangang"
+    location "Hangzhou"
+    user
+  end
+  
 end
 
   

@@ -1,9 +1,10 @@
-<%= provide :title, "Setting" %>
+<%= provide :title, "Account" %>
 
-<legend>Settings</legend>
+
 <div class="row-fluid">
-	<div class="span6">
-		<%= render partial: "usersform", locals: { submit_button_title: "Save account changes" } %>
+	<legend>Update account</legend>
+	<div class="span-signup">
+		<%= render partial: "user_form", locals: { submit_button_title: "Save account changes" } %>
 	</div>
 </div>
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe User do  
   before do
     @user = User.new(name: "Example User", email: "example@gmail.com", 
                      password: "whatever", password_confirmation: "whatever")
@@ -14,6 +14,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
+  it { should respond_to(:profile) }
   it { should be_valid }
   
   # validate name 
@@ -99,6 +100,16 @@ describe User do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
-
   
+  # profile associations
+  
+  describe "profile associations" do
+    before { @user.save }
+    let (:profile) { @user.build_profile(realname: "zhujiangang", location: "hangzhou") }
+    
+    it "when deleted a user, the user's profile should be deleted" do
+      @user.destroy
+      Profile.find_by_id(profile.id).should be_nil
+    end
+  end
 end

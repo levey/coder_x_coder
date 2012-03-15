@@ -1,4 +1,29 @@
 <%= provide(:title, @user.name) %>
+
 <div class="row-fluid">
-	<%= render "avatar" %>
+	<%= render "avatar" %>	
+	<div class="profile-list">
+		<dl>
+			<dt>Realname</dt>
+			<dd><%= @user.profile.realname %></dd>
+			<dt>Location</dt>
+			<dd><%= @user.profile.location %></dd>
+			<dt>Company</dt>
+			<dd><%= @user.profile.company %></dd>
+			<dt>Github</dt>
+			<dd><%= link_to @user.profile.github, "https://github.com/#{@user.profile.github}" %></dd>
+			<dt>Blog</dt>
+			<dd><%= link_to @user.profile.blog, @user.profile.blog %></dd>
+			<dt>Twitter</dt>
+			<dd><%= link_to "@#{@user.profile.twitter}", "https://twitter.com/#{@user.profile.twitter}" %></dd>
+			<dt>Weibo</dt>
+			<dd><%= link_to "@#{@user.profile.weibo}", "http://weibo.com/#{@user.profile.weibo}" %></dd>
+		</dl>
+	</div>
+	<hr />
+	<%= @user.profile.bio %>
+	
+	
 </div>
+
+

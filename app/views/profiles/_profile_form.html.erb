@@ -1,0 +1,24 @@
+<%= form_for current_user.profile do |f| %>
+
+	<%= render 'shared/error_messages', :object => f.object %>
+
+	<%= f.label :realname %>
+	<%= f.text_field :realname, class: "input-xlarge input-signup" %><br />
+	<%= f.label :location %>
+	<%= f.text_field :location, class: "input-xxlarge input-signup" %><br />				
+	<%= f.label :company %>
+	<%= f.text_field :company, class: "input-xxlarge input-signup" %><br />
+	<%= f.label :blog %>
+	<%= f.text_field :blog, class: "input-xxlarge input-signup" %><br />
+	<%= f.label :github %>
+	<%= f.text_field :github, class: "input-xxlarge input-signup" %><br />
+	<%= f.label :twitter %>
+	<%= f.text_field :twitter, class: "input-xxlarge input-signup" %><br />
+	<%= f.label :weibo %>
+	<%= f.text_field :weibo, class: "input-xxlarge input-signup" %><br />
+	<%= f.label :bio %>
+	<%= f.text_area :bio, class: "input-xxlarge input-signup", rows: 5 %><br />
+	
+	<%= f.submit "Save profile changes", class: "btn btn-primary btn-large", 
+	             style: "width: 330px" %>
+<% end %>

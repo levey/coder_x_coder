@@ -4,7 +4,7 @@ describe "User pages" do
   
   subject { page }
   
-  # profile
+  # profile page
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
     
@@ -69,18 +69,34 @@ describe "User pages" do
   
   describe "setting" do
     let(:user) { FactoryGirl.create :user }
-    before { visit edit_user_path }
+    before { visit edit_user_path(user) }
     
     describe "page" do
-      it { should have_selector('h1', text:user.name)  }
-      it { should have_selector('title', text:generate_title("setting")) }
-      it { should have_link('Change your avatar at Gravatar.com', 'http://gravatar.com/emails') }
+      it { should have_selector('title', text:generate_title("Account")) }
     end
     
     describe "fill in invalid information" do
-      before { click_button "Save" }
+      before { click_button "Save account changes" }
       
       it { should have_content("error") }
+    end
+    
+    describe "fill in valid information" do
+      let(:new_name) { "New name" }
+      let(:new_email) { "new@email.com" }
+      
+      before do
+        fill_in "Name", with: new_name
+        fill_in "Email", with: new_email
+        fill_in "Password", with: user.password
+        fill_in "Confirmation", with: user.password
+        click_button "Save account changes"
+      end
+      
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign out', href: signout_path) }
+      specify { user.reload.name.should == new_name }
+      specify { user.reload.email.should == new_email }
     end
   end
 end

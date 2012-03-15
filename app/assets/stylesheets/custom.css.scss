@@ -27,7 +27,6 @@ body {
 .wapper {
   min-height: 20px;
   padding: 10px;
-  margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
@@ -70,7 +69,25 @@ body {
     margin: 0 0 18px 0;
   }
 }
+
 .field_with_errors {
   @extend .control-group;
   @extend .error;
- }
+	display: inline;
+}
+
+.profile-list dl{
+	margin:10px;
+	font-size:12px;
+}
+
+.profile-list dl dt { 
+	margin:0;
+	float:left;
+	width:115px;
+	color:#666;
+}
+
+.profile-list dl dd {
+	margin:0;
+}

@@ -1,5 +1,8 @@
 <h1>
 	<%= gravatar_for @user %>
 	<%= @user.name %>
+	<% if @user == current_user %>
+		<%= link_to "Edit",edit_profile_path(@user.profile), class: "btn" %>
+	<% end %>
 </h1>
 <hr />
