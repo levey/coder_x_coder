@@ -52,15 +52,13 @@
 				<% end %>			
 			</dl>
 		</div>
-	
 		<% if profile.bio %>
 			<hr />
-			<%= profile.bio %>	
+			<span class="bio"><%= profile.bio %>	</span>	
 		<% end %>
 	<% else %>
-		<span> You have not set up your profiles yet!</span>		
+		<span class="bio"> You have not set up your profiles yet!</span>		
 	<% end %>
-	
 </div>
 
 

@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-$grayMediumLight: #eaeaea;
+$grayFont: #666;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -76,6 +76,8 @@ body {
 	display: inline;
 }
 
+/* profile */
+
 .profile-header {
 	padding-top: 5px;
 }
@@ -86,23 +88,25 @@ body {
 
 .profile-header a {
 	float:right;
-	margin-top: 6px;
+	margin-top: 5px;
 }
 
-
 .profile-list dl{
-	font-size: 20px;
-	margin:10px;
-	font-size:12px;
+	margin:0px;
+	font-size: 12px;
 }
 
 .profile-list dl dt { 
 	margin:0;
 	float:left;
 	width:150px;
-	color:#666;
+	color:$grayFont;
 }
 
 .profile-list dl dd {
 	margin:0;
+}
+
+.bio {
+	color:$grayFont;
 }

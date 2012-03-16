@@ -5,11 +5,14 @@ CoderXCoder::Application.routes.draw do
   
   root to: 'static_pages#home'
 
-  match '/signup', to: 'users#new'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete  
+  match '/signup' => 'users#new'
+  match '/signin' => 'sessions#new'
+  match '/signout'  =>  'sessions#destroy', via: :delete  
+  match '/:id' => 'users#show', as: :show_user
+  match '/:id/account/edit' => 'users#edit', as: :edit_account
+  match '/:id/profile/edit' => 'profiles#edit', as: :edit_profile
   
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

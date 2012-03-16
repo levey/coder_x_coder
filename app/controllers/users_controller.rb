@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_name(params[:id])
     @user.build_profile unless @user.profile.present?
   end
   
@@ -19,15 +19,15 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_name(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_name(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profile settings updated"
+      flash[:success] = "Account updated"
       sign_in @user
       redirect_to edit_user_path(@user)
     else
