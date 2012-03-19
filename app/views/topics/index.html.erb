@@ -1,6 +1,15 @@
-<% if @topics.any? %>
-  <ol class="microposts">
-    <%= render partial: 'topic_home', collection: @topics %>
-  </ol>
-  <%= will_paginate @topics %>
-<% end %>
+<div class="rect">
+	<% if @topics.any? %>
+		<div class="topic-header">
+			<h3>Recent Topics
+				<%= link_to "New Topic","#", class: "btn new-topic-btn" %>
+			</h3>
+			<hr />
+		</div>
+	
+	  <ol class="topics">
+	    <%= render partial: 'topic', collection: @topics %>
+	  </ol>
+	  <%= will_paginate @topics %>
+	<% end %>	
+</div>

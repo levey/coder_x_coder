@@ -67,9 +67,9 @@
 			<%= "#{@user.name}'s topics" %>
 		</legend>
 		<ul>
-			<%= render @topics %>
+			<%= render partial: 'topics/plain_topic', collection: @plain_topics %>
 		</ul>
-		<%= will_paginate @topics %>
+		<%= will_paginate @plain_topics %>
 	<% end %>
 </div>
 

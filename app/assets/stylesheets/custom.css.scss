@@ -113,3 +113,48 @@ body {
 .bio {
 	color:$grayFont;
 }
+
+/* user */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter
+    }
+  }
+}
+
+
+/* topic */
+
+.topics {
+ 	display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.topic-header {
+	padding-top: 8px;
+}
+
+.new-topic-btn {
+	float:right;
+/*	margin-top: 5px;
+*/}
+
+.title {
+	font-size: 18px;
+}
+.timestamp {
+  color: $grayLight;
+}
