@@ -1,0 +1,6 @@
+<% if @topics.any? %>
+  <ol class="microposts">
+    <%= render partial: 'topic_home', collection: @topics %>
+  </ol>
+  <%= will_paginate @topics %>
+<% end %>

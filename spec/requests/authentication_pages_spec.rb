@@ -29,6 +29,29 @@ describe "AuthenticationPages" do
       it { should have_link('Account', href:edit_user_path(user)) }
       it { should have_link('Sign out', href:signout_path) }
     end
-    
   end
+  
+  describe "authorization" do
+    
+    describe "for non-signed-in users" do
+      let(:user) { FactoryGirl.create :user }
+      
+      describe "in the Microposts controller" do
+        
+        describe "submitting to the create action" do
+          before { post topics_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+        
+        describe "submitting to the destroy action" do
+          before do
+            topic = FactoryGirl.create(:topic)
+            delete topic_path(topic)
+          end
+          specify { response.should redirect_to(signin_path) }          
+        end        
+      end
+    end
+  end
+  
 end

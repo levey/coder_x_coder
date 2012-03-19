@@ -1,13 +1,8 @@
 <%= provide :title, "Sign in" %>
-<!-- <ul class="breadcrumb">
-	<li><%= link_to 'Home', root_path %></li>
-	<span class="divider">/</span>
-	<li>Sign in</li>
-</ul> -->
-<div class="row-fluid">
+<div class="rect">
 	<legend>Sign in CXC</legend>
 	<div class="span-signup">
-		
+
 		<%= form_for(:session, url: sessions_path) do |f| %>
 
 			<%= f.label :name_or_email %>
@@ -17,4 +12,5 @@
 			<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
 		<% end %>
 	</div>
+		
 </div>

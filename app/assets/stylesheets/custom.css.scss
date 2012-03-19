@@ -24,7 +24,10 @@ body {
   border: 0px solid #ddd;
 }
 
-.wapper {
+.rect {
+	@extend .row;
+	margin-left:0px;
+	margin-bottom:20px;
   min-height: 20px;
   padding: 10px;
   background-color: #fff;

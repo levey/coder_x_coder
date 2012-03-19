@@ -15,6 +15,7 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:profile) }
+  it { should respond_to(:topics) }
   it { should be_valid }
   
   # validate name 
@@ -23,26 +24,31 @@ describe User do
     it { should_not be_valid }
   end
   
+  describe "when name is too short" do
+    before { @user.name = "aa" }
+    it { should_not be_valid }
+  end
+  
   describe "when name is too long" do
-    before { @user.name = "a" * 21 }
+    before { @user.name = "a" * 16 }
     it { should_not be_valid }
   end
   
   # validate email
   describe "when email's format is not correct" do
-    vailid_addresses = %w[user@company,com first_last_at_gmail.com]
+    invailid_addresses = %w[user@company,com first_last_at_gmail.com]
     
-    vailid_addresses.each do |addressed|
-      before { @user.name = addressed }
+    invailid_addresses.each do |address|
+      before { @user.email = address }
       it { should_not be_valid }
     end
   end
   
   describe "when email's format is correct" do
-    invailid_addresses = %w[user@company.com first_last@gmail.com hello@world.com first.last@gmail.com]
+    vailid_addresses = %w[user@company.com first_last@gmail.com hello@world.com first.last@gmail.com]
     
-    invailid_addresses.each do |addressed|
-      before { @user.name = addressed }
+    vailid_addresses.each do |address|
+      before { @user.email = address }
       it { should be_valid }
     end
   end
@@ -112,4 +118,23 @@ describe User do
       Profile.find_by_id(profile.id).should be_nil
     end
   end
+  
+  # topic associations  
+  describe "topic associations" do
+    before { @user.save }
+    
+    let!(:old_topic) { FactoryGirl.create :topic, user:@user, created_at: 1.hour.ago }
+    let!(:new_topic) { FactoryGirl.create :topic, user:@user, created_at: 1.minute.ago }
+    
+    it "should have the right ordered topics" do
+      @user.topics.should == [new_topic, old_topic]
+    end
+    
+    it "should destroy associated topic when it's destroyed" do
+      topics = @user.topics
+      @user.destroy
+      @user.topics.should be_empty
+    end
+  end
+  
 end

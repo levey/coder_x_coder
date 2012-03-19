@@ -1,7 +1,14 @@
 <%= provide :title, "Home" %>
 
-<div class="hero-unit center">
-  <h1>Welcome</h1>
-	<h1>to</h1>
-	<h1>Coder x Coder</h1>
+<div class="rect">
+	<%  if signed_in? %>
+    <h3>Topics</h3>
+    <%= render 'topics/topics' %>
+	<% else %>
+		<div class="hero-unit center">
+		  <h1>Welcome</h1>
+			<h1>to</h1>
+			<h1>Coder x Coder</h1>
+		</div>
+	<% end %>	
 </div>

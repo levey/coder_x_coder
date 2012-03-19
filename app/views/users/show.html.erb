@@ -2,7 +2,7 @@
 
 <% profile = @user.profile %>
 
-<div class="row-fluid">
+<div class="rect">
 	<h1 class="profile-header">
 		<%= gravatar_for @user %>
 		<span><%= @user.name %></span>
@@ -11,7 +11,7 @@
 		<% end %>
 	</h1>
 	<hr />
-	
+
 	<% if profile.realname || profile.location || profile.company || profile.blog || profile.github ||
 		profile.twitter || profile.weibo || profile.bio %>
 		<div class="profile-list">
@@ -20,12 +20,12 @@
 					<dt>Real Name</dt>
 					<dd><%= profile.realname %></dd>
 				<% end %>
-			
+
 				<% if profile.location %>
 					<dt>Location</dt>
 					<dd><%= profile.location %></dd>
 				<% end %>
-			
+
 				<% if profile.company %>
 					<dt>Company</dt>
 					<dd><%= profile.company %></dd>
@@ -45,7 +45,7 @@
 					<dt>Twitter</dt>
 					<dd><%= link_to "@#{profile.twitter}", "https://twitter.com/#{profile.twitter}", target: "_blank" %></dd>
 				<% end %>
-			
+
 				<% if profile.weibo %>
 					<dt>Weibo</dt>
 					<dd><%= link_to "@#{profile.weibo}", "http://weibo.com/#{profile.weibo}", target: "_blank" %></dd>
@@ -61,4 +61,15 @@
 	<% end %>
 </div>
 
+<div class="rect">
+	<% if @user.topics.any? %>
+		<legend>
+			<%= "#{@user.name}'s topics" %>
+		</legend>
+		<ul>
+			<%= render @topics %>
+		</ul>
+		<%= will_paginate @topics %>
+	<% end %>
+</div>
 
