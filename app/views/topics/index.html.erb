@@ -2,7 +2,7 @@
 	<% if @topics.any? %>
 		<div class="topic-header">
 			<h3>Recent Topics
-				<%= link_to "New Topic","#", class: "btn new-topic-btn" %>
+				<%= link_to "New Topic", new_topic_path, class: "btn btn-new-topic" %>
 			</h3>
 			<hr />
 		</div>

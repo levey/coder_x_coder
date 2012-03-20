@@ -63,9 +63,10 @@
 
 <div class="rect">
 	<% if @user.topics.any? %>
-		<legend>
+		<h3>
 			<%= "#{@user.name}'s topics" %>
-		</legend>
+		</h3>
+		<hr />
 		<ul>
 			<%= render partial: 'topics/plain_topic', collection: @plain_topics %>
 		</ul>

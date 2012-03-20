@@ -1,6 +1,10 @@
+
 <%= link_to gravatar_for(topic.user), topic.user %>
-<p class="title"><%= topic.title %></p>
-<p class="timestamp">
-   <%= "#{topic.user.name} posted #{time_ago_in_words(topic.created_at)} ago" %>
-</p>
+<div class="topic">
+	<p class="title"><%= link_to topic.title, topic %></p>
+
+	<p class="timestamp">
+	  <span class="label-name"><%= link_to topic.user.name, topic.user %></span> <%= "posted #{time_ago_in_words(topic.created_at)} ago." %>
+	</p>
+</div>
 <hr />

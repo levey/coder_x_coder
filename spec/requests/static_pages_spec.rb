@@ -11,5 +11,5 @@ describe "Static Pages" do
     it { should have_content('Welcome') }
     it { should have_selector('title', text: generate_title('Home')) }
   end
-  
+    
 end
