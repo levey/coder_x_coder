@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @plain_topics = @user.topics.paginate(page: params[:page])
+    @user_topics = @user.topics.paginate(page: params[:page])
+    @user_comments = @user.comments.paginate(page: params[:page])
     @user.build_profile unless @user.profile.present?
   end
   

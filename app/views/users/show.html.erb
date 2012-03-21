@@ -12,8 +12,8 @@
 	</h1>
 	<hr />
 
-	<% if profile.realname || profile.location || profile.company || profile.blog || profile.github ||
-		profile.twitter || profile.weibo || profile.bio %>
+	<% if !profile.realname.empty? || !profile.location.empty? || !profile.company.empty? || !profile.blog.empty? || !profile.github.empty? g||
+		!profile.twitter.empty? || !profile.weibo.empty? || !profile.bio.empty? %>
 		<div class="profile-list">
 			<dl>
 				<% if !profile.realname.empty? %>
@@ -58,20 +58,38 @@
 			<span class="bio"><%= profile.bio %>	</span>	
 		<% end %>
 	<% else %>
-		<span class="bio"> You have not set up your profiles yet!</span>		
+		<span class="bio"> 
+			<% if current_user?(@user) %>
+				You have not set up your profile yet!
+			<% else %>
+				This guy have not set up his profile yet!
+			<% end %>
+		</span>		
 	<% end %>
 </div>
 
+<% if @user.topics.any? %>
 <div class="rect">
-	<% if @user.topics.any? %>
 		<h3>
 			<%= "#{@user.name}'s topics" %>
 		</h3>
 		<hr />
 		<ul>
-			<%= render partial: 'topics/plain_topic', collection: @plain_topics %>
+			<%= render partial: 'topics/user_topic', collection: @user_topics %>
 		</ul>
-		<%= will_paginate @plain_topics %>
-	<% end %>
+		<%= will_paginate @user_topics %>
 </div>
+<% end %>
 
+<% if @user.comments.any? %>
+<div class="rect">
+		<h3>
+			<%= "#{@user.name}'s commented topics" %>
+		</h3>
+		<hr />
+		<ul>
+			<%= render partial: 'topics/user_comment', collection: @user_comments %>
+		</ul>
+		<%= will_paginate  @user_comments %>
+</div>
+<% end %>

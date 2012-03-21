@@ -24,7 +24,7 @@
 	<div class="rect">
 		<h4><%= "#{@topic.comments_count} comments" %></h4>
 		<hr />
-		<%= render partial: 'comments/comment', collection: @comments %>
+		<%= render partial: 'comments/comment', collection: @comments, locals: { page: @page } %>
 		<%= will_paginate @comments %>
 	</div>
 <% end %>

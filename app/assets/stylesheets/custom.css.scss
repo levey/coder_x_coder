@@ -306,20 +306,20 @@ hr {
 }
 
 .input-topic-title {
+	width: 908px;
+	font-weight:900;
+}
+
+.input-topic-content {
 	min-width: 908px;
 	max-width: 908px;
-	height: 80px;
+	height: 300px;
 }
 
 .input-comment-content {
 	min-width: 908px;
 	max-width: 908px;
 	height: 160px;
-}
-.input-topic-content {
-	min-width: 908px;
-	max-width: 908px;
-	height: 300px;
 }
 
 .new-topic-tips {

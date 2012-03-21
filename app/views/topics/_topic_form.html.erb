@@ -4,9 +4,10 @@
 			<%= f.submit locals[:action_btn_title], class: "btn btn-post-topic" %>
 		</h3>
 		<hr />
+
 	</div>
 	<%= render 'shared/error_messages', object: f.object %>
 	
-	<%= f.text_area :title, class: "input-topic-title", placeholder: "Title" %>
+	<%= f.text_field :title, class: "input-topic-title", placeholder: "Title" %>
 	<%= f.text_area :content, class: "input-topic-content", placeholder: "Content" %>
 <% end %>
