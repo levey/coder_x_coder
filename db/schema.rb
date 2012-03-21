@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319053006) do
+ActiveRecord::Schema.define(:version => 20120321094137) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["user_id", "created_at"], :name => "index_comments_on_user_id_and_created_at"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -34,8 +44,9 @@ ActiveRecord::Schema.define(:version => 20120319053006) do
     t.string   "title"
     t.text     "content"
     t.integer  "hits"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "comments_count", :default => 0
   end
 
   add_index "topics", ["user_id", "created_at"], :name => "index_topics_on_user_id_and_created_at"

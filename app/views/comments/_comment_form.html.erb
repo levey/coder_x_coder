@@ -1,0 +1,10 @@
+<%= form_for [@topic, Comment.new] do |f| %>
+<div class="rect">
+	<h3>Leave a comment
+		<%= f.submit "Post", class: "btn btn-post-topic" %>
+	</h3>
+	<hr />
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.text_area :content, class: "input-comment-content" %>
+</div>
+<% end %>

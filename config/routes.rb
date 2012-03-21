@@ -1,8 +1,11 @@
 CoderXCoder::Application.routes.draw do
   resources :users
+  resources :topics do
+    resources :comments
+  end
+  resources :comments
   resources :sessions, only: [:new, :create, :destroy]
   resources :profiles
-  resources :topics
   
   root to: 'static_pages#home'
 

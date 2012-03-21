@@ -22,6 +22,7 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
+    @comments = @topic.comments.order('created_at ASC').paginate(page: params[:page])
   end
   
   def edit

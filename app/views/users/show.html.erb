@@ -16,43 +16,44 @@
 		profile.twitter || profile.weibo || profile.bio %>
 		<div class="profile-list">
 			<dl>
-				<% if profile.realname %>
+				<% if !profile.realname.empty? %>
 					<dt>Real Name</dt>
 					<dd><%= profile.realname %></dd>
 				<% end %>
 
-				<% if profile.location %>
+				<% if !profile.location.empty? %>
 					<dt>Location</dt>
 					<dd><%= profile.location %></dd>
 				<% end %>
 
-				<% if profile.company %>
+				<% if !profile.company.empty? %>
 					<dt>Company</dt>
 					<dd><%= profile.company %></dd>
 				<% end %>
 
-				<% if profile.blog %>
+				<% if !profile.blog.empty? %>
 					<dt>Blog</dt>
 					<dd><%= link_to profile.blog, profile.blog,target: "_blank" %></dd>
 				<% end %>
 
-				<% if profile.github %>
+				<% if !profile.github.empty? %>
 					<dt>GitHub</dt>
-					<dd><%= link_to profile.github, "https://github.com/#{profile.github}", target: "_blank" %></dd>
+					<dd><%= link_to profile.github, "https://github.com/#{profile.github}", 
+					target: "_blank" %></dd>
 				<% end %>
 
-				<% if profile.twitter %>
+				<% if !profile.twitter.empty? %>
 					<dt>Twitter</dt>
 					<dd><%= link_to "@#{profile.twitter}", "https://twitter.com/#{profile.twitter}", target: "_blank" %></dd>
 				<% end %>
 
-				<% if profile.weibo %>
+				<% if !profile.weibo.empty? %>
 					<dt>Weibo</dt>
 					<dd><%= link_to "@#{profile.weibo}", "http://weibo.com/#{profile.weibo}", target: "_blank" %></dd>
 				<% end %>			
 			</dl>
 		</div>
-		<% if profile.bio %>
+		<% if !profile.bio.empty? %>
 			<hr />
 			<span class="bio"><%= profile.bio %>	</span>	
 		<% end %>

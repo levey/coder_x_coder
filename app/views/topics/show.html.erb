@@ -19,3 +19,16 @@
 	
 	<p class="content-topic-detail"><%= simple_format h(@topic.content) %></p>
 </div>
+
+<% if !@comments.empty? %>
+	<div class="rect">
+		<h4><%= "#{@topic.comments_count} comments" %></h4>
+		<hr />
+		<%= render partial: 'comments/comment', collection: @comments %>
+		<%= will_paginate @comments %>
+	</div>
+<% end %>
+
+<% if signed_in? %>
+	<%= render 'comments/comment_form' %>
+<% end %>

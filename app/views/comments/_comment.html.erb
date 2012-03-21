@@ -1,0 +1,10 @@
+<%= link_to gravatar_for(comment.topic.user), comment.topic.user %>
+<div class="comment">
+	<p class="comment-title">
+		<span class="comment-counter"></span>
+		<span class="label-name"><%= "" %><%= link_to comment.topic.user.name, comment.topic.user %>
+		<%= "(\##{comment_counter+1}) commented #{time_ago_in_words(comment.created_at)} ago." %></span>
+	</p>
+	<p><%= comment.content %></p>
+</div>
+<hr />
