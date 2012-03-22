@@ -9,6 +9,10 @@ gem 'bootstrap-will_paginate', '0.0.5'
 gem 'jquery-rails', '2.0.0'
 gem 'unicorn'
 
+group :production do
+  gem "pg", "~> 0.13.2"
+end
+
 group :development, :text do
 	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.8.1'
