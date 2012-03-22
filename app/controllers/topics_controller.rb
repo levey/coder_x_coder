@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_filter :correct_user,   only: [:edit, :update, :destroy]
   
   def index
-    @topics = Topic.order('created_at DESC').paginate(page: params[:page])
+    @topics = Topic.last_actived.paginate(page: params[:page])
   end
   
   def new

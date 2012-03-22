@@ -7,6 +7,11 @@ class Topic < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 120 }
   validates :user_id, presence: true
     
-  default_scope order: 'topics.created_at DESC'
+  scope :last_actived, order("topics.commented_at DESC, topics.created_at DESC")
+  
+  def update_last_comment(comment)
+    self.commented_at = Time.now
+    self.save
+  end
   
 end

@@ -12,8 +12,8 @@
 	</h1>
 	<hr />
 
-	<% if !profile.realname.empty? || !profile.location.empty? || !profile.company.empty? || !profile.blog.empty? || !profile.github.empty? g||
-		!profile.twitter.empty? || !profile.weibo.empty? || !profile.bio.empty? %>
+	<% if !profile.realname.blank? || !profile.location.blank? || !profile.company.blank? || !profile.blog.blank? || !profile.github.blank? ||
+		!profile.twitter.blank? || !profile.weibo.blank? || !profile.bio.blank? %>
 		<div class="profile-list">
 			<dl>
 				<% if !profile.realname.empty? %>

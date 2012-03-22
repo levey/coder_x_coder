@@ -140,6 +140,14 @@ body {
 	background:#eee image-url('bg.jpeg');
 }
 
+.footer {
+	text-align:center;
+	margin:20px;
+	span {
+		text-shadow: 0em 0.1em 0em #fff
+	}
+}
+
 .hero-unit {
   background-color: #fff;
   border: 0px solid #ddd;
@@ -193,6 +201,20 @@ hr {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
+
+.summary {
+	color: $lightGrayFont;
+}
+.link a {
+	color: $lightGrayFont;
+	font-weight:600;
+}
+
+.link a:hover {
+	color: $highlightedAnchor;
+	text-decoration: none;
+}
+
 
 /* forms */
 .span-signup {
@@ -339,18 +361,6 @@ hr {
 	float:right;
 	font-weight:bolder;
 	margin-top: -16px;
-}
-
-.label-name {
-	color: $lightGrayFont;
-	a {
-		color: $lightGrayFont;
-		font-weight:600;
-	}
-	a:hover {
-		color: $highlightedAnchor;
-		text-decoration: none;
-	}
 }
 
 /*comment*/

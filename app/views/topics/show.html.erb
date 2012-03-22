@@ -5,7 +5,7 @@
 	<div class="topic">
 		<p class="title-topic-detail"><%= @topic.title %></p>
 		<p class="timestamp">
-		   <span class="label-name"><%= link_to @topic.user.name, @topic.user %></span> <%= "posted #{time_ago_in_words(@topic.created_at)} ago." %>
+		   <span class="summary link"><%= link_to @topic.user.name, @topic.user %></span> <%= "posted #{time_ago_in_words(@topic.created_at)} ago." %>
 			<% if @topic.user == current_user %>
 				<%= link_to "Edit", edit_topic_path %> | 
 				<%= link_to "Delete", @topic,

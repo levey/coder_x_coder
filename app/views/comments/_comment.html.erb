@@ -2,7 +2,9 @@
 <div class="comment">
 	<p class="comment-title">
 		<span class="comment-counter"></span>
-		<span class="label-name"><%= "\##{ (page.to_i - 1) * 30 + comment_counter + 1 } " %><%= link_to comment.topic.user.name, comment.topic.user %>
+		<span class="summary link">
+		<%= "\##{ (page.to_i - 1) * 30 + comment_counter + 1 } " %>
+		<%= link_to current_user?(comment.topic.user) ? "You" : comment.topic.user.name , comment.topic.user %>
 		<%= "commented #{time_ago_in_words(comment.created_at)} ago." %></span>
 	</p>
 	<p><%= comment.content %></p>
