@@ -1,6 +1,5 @@
 class TopicsController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update, :destroy]
-  before_filter :correct_user,   only: [:edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:show, :index]
   
   def index
     @topics = Topic.last_actived.paginate(page: params[:page])
@@ -50,12 +49,4 @@ class TopicsController < ApplicationController
       render 'edit'
     end
   end  
-  
-  private
-
-    def correct_user
-      @user = Topic.find(params[:id]).user
-      redirect_to(signin_path, notice: "Please sign in.") unless current_user?(@user)
-    end
-  
 end

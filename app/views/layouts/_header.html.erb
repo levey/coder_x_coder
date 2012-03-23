@@ -10,18 +10,18 @@
 					<% if signed_in? %>
 						<li id="fat-menu" class="dropdown">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	              <%= gravatar_for current_user, size: 20, round: true %> <%= current_user.name %> <b class="caret"></b>
+	              <%= gravatar_for current_user, size: 20, round: true %> <%= current_user.username %> <b class="caret"></b>
 	            </a>
           
 							<ul class="dropdown-menu">
 								<li><%= link_to "Profile", current_user %></li>
-	 							<li><%= link_to "Account", edit_user_path(current_user) %></li>
-	              <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+	 							<li><%= link_to "Account", edit_user_registration_path(current_user) %></li>
+	              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 							</ul>
 						</li>
 					<% else %>
-						<li><%= link_to "Sign in", signin_path %></li>
-						<li><%= link_to "Sign up", signup_path %></li>
+						<li><%= link_to "Sign in", new_user_session_path %></li>
+						<li><%= link_to "Sign up", new_user_registration_path %></li>
 					<% end %>
 				</ul>					
 			</nav>

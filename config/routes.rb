@@ -1,22 +1,20 @@
 CoderXCoder::Application.routes.draw do
+  devise_for :users
   resources :users
+  resources :profiles
+  
+  resources :users do
+    resources :topics
+  end
+  
   resources :topics do
     resources :comments
   end
+  
   resources :comments
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :profiles
   
-  root to: 'static_pages#home'
-
-  match '/signup' => 'users#new'
-  match '/signin' => 'sessions#new'
-  match '/signout'  =>  'sessions#destroy', via: :delete  
   
-  # match '/:id' => 'users#show', as: :show_user
-  # match '/:id/account/edit' => 'users#edit', as: :edit_account
-  # match '/:id/profile/edit' => 'profiles#edit', as: :edit_profile
-  
+  root to: 'static_pages#home'  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

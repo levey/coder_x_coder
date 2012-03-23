@@ -5,4 +5,4 @@ en:
   activerecord:
     attributes:
       user:
-        password_digest: "Password"
+        login: "Username or email"

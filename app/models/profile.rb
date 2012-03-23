@@ -3,9 +3,4 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   
   validates :user_id, presence: true
-
-  # def to_param
-  #   user.name.parameterize
-  # end
-
 end

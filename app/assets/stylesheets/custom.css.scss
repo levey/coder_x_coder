@@ -177,9 +177,7 @@ hr {
     margin-bottom: 10px;
   }
 }
-.input-signup {
-	width: 320px;
-}
+
 
 .gravatar {
   float: left;
@@ -215,12 +213,19 @@ hr {
 
 
 /* forms */
-.span-signup {
-	width:330px;
+
+.user-form {
+	input {
+		width: 320px;
+	}
 }
 
 #error_explanation {
   color:#f00;
+	span {
+		font-size:15px;
+		font-weight:bold;
+	}
   ul {
     list-style: none;
     margin: 0 0 18px 0;
@@ -352,6 +357,8 @@ hr {
 }
 
 .content-topic-detail {
+	overflow:hidden;	
+	word-wrap:break-word; 
 	font-size: 14px;
 }
 
@@ -362,8 +369,9 @@ hr {
 }
 
 /*comment*/
-.comment-counter {
-	float: right;
-	color: $lightGrayFont;
-	font-weight:400;
+.comment-content {
+	overflow:hidden;	
+	word-wrap:break-word; 
+	max-width:850px;
+	float: left;
 }

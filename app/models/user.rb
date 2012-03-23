@@ -1,30 +1,42 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :profile_attributes
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,:authentication_keys => [:login]
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me, :profile_attributes
+  
+  attr_accessor :login
+  USERNAME_REGAX = /\A[a-z0-9_]{3,15}/i
+  validates :username, presence: true, format: { with: USERNAME_REGAX }, uniqueness: { case_sensitive: false } 
+  
   has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
   has_many :topics, dependent: :destroy
   has_many :comments, dependent: :destroy
-  
-  accepts_nested_attributes_for :profile
-  
-  
-  validates :name, presence: true, length: { minimum:3, maximum: 15 }, uniqueness: { case_sensitive: false } 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  validates :password, length: { :minimum => 6 }                                       
-  validates :password_confirmation, presence: true
-  
-  before_save :create_remember_token
+
   before_create :create_profile
     
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
+  end
+   
+  def created_topics
+    self.topics.order('created_at DESC')
+  end
+
+  def commented_topics
+    topic_ids = self.comments.uniq.collect(&:topic_id)
+    Topic.where(id: topic_ids).order('created_at DESC')
+  end
+  
   private
-    
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
-    
+      
     def create_profile
       self.build_profile if self.profile.nil?
     end    
+  
 end

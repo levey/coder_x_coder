@@ -6,7 +6,7 @@ class Topic < ActiveRecord::Base
   
   validates :title, presence: true, length: { maximum: 120 }
   validates :user_id, presence: true
-    
+  
   scope :last_actived, order("topics.commented_at DESC, topics.created_at DESC")
   
   def update_last_comment(comment)
