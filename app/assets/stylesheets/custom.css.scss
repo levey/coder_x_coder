@@ -1,18 +1,5 @@
 @import "bootstrap";
 
-$grayFont: #666;
-$lightGrayFont: #999;
-$darkGrayFont: #333;
-
-$highlightedAnchor: #4183c4;
-
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box;
-}
-
 /* white navbar */
 
 .dropdown{position:relative;}
@@ -127,7 +114,18 @@ div.subnav .nav>li>.dropdown-toggle{background-color:transparent;color:#4183c4;}
 .navbar .nav-collapse.in>.nav li>a{color:#333333;}.navbar .nav-collapse.in>.nav li>a .caret{border-top-color:#999999;}
 .navbar .nav-collapse.in>.nav li>a:hover{text-shadow:none;color:#4183c4;background-color:transparent;}.navbar .nav-collapse.in>.nav li>a:hover .caret{border-top-color:#ffffff;}
 
+$grayFont: #666;
+$lightGrayFont: #999;
+$darkGrayFont: #333;
 
+$highlightedAnchor: #4183c4;
+
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
 
 /* universal */
 
@@ -319,7 +317,7 @@ hr {
 	}
 	a:hover {
 		color: #000;
-		text-decoration: none;
+/*		text-decoration: none;*/
 	}
 }
 

@@ -17,11 +17,7 @@ class User < ActiveRecord::Base
   
   before_save :create_remember_token
   before_create :create_profile
-  
-  # def to_param
-  #   name
-  # end
-  
+    
   private
     
     def create_remember_token

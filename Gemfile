@@ -14,9 +14,12 @@ gem "devise", "~> 2.0.4"
 # Deployment 
 gem 'unicorn'
 
+group :production do
+  gem "pg", "~> 0.13.2"
+end
 
-group :development, :text do
-	gem 'sqlite3', '1.3.5'
+group :development, :test do
+	gem 'sqlite3', '~> 1.3.5'
 	gem 'rspec-rails', '2.8.1'
 end
 
