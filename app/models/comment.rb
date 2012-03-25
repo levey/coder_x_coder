@@ -12,7 +12,7 @@ class Comment < ActiveRecord::Base
   private
   
     def update_topic
-      topic.update_last_comment(self)
+      topic.update_last_commented_at
     end
   
 end

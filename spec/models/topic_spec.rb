@@ -26,7 +26,7 @@ describe Topic do
   end
   
   describe "with title that is too long" do
-    before { @topic.title = "x" * 101 }
+    before { @topic.title = "x" * 121 }
     it { should_not be_valid }
   end
   

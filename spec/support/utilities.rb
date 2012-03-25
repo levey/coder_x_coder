@@ -1,17 +1,12 @@
 def generate_title(page_title)
-  base_title = "Coder x Coder"
+  base_title = "C x C"
   if page_title.empty?
     base_title
   else
-    "#{base_title} | #{page_title}"
+    "#{page_title} - #{base_title}"
   end
 end
 
 def sign_in(user)
-  visit signin_path
-  fill_in "Name or email",    with: user.email
-  fill_in "Password", with: user.password
-  click_button "Sign in"
-  # # Sign in when not using Capybara as well.
-  # cookies[:remember_token] = user.remember_token
+  page.driver.post new_user_session_path, login: user.username, password:'whatever'
 end

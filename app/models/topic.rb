@@ -8,9 +8,15 @@ class Topic < ActiveRecord::Base
   validates :user_id, presence: true
   
   scope :last_actived, order("topics.commented_at DESC, topics.created_at DESC")
-  
-  def update_last_comment(comment)
+
+  before_save :set_last_commented_at
+
+  def set_last_commented_at
     self.commented_at = Time.now
+  end
+
+  def update_last_commented_at
+    set_last_commented_at
     self.save
   end
   

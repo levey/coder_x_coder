@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    name "Levey"
+    username "Levey"
     email "levey.zhu@gmail.com"
     password "foobar"
-    password_confirmation "foobar"
   end
   
   factory :profile do
@@ -13,11 +12,16 @@ FactoryGirl.define do
   end
   
   factory :topic do
-    title "Hello World!"
-    content "Hello World!Hello World!Hello World!Hello World!"
-    hits 100
+    title "Hello!"
+    content "World!"
     user
   end
+  
+  # factory :comment do
+  #   content "Hello World!Hello World!Hello World!Hello World!"
+  #   user
+  #   topic
+  # end
   
 end
 

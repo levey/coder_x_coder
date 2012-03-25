@@ -3,9 +3,8 @@
 		<h3><%= locals[:info_title] %>
 			<%= f.submit locals[:action_btn_title], class: "btn btn-post-topic" %>
 		</h3>
-		<hr />
-
 	</div>
+  <hr style="margin-top:20px" />
 	<%= render 'shared/error_messages', object: f.object %>
 	
 	<%= f.text_field :title, class: "input-topic-title", placeholder: "Title" %>

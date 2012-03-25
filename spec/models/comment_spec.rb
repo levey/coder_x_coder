@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Comment do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  # let(:comment) { FactoryGirl.create :comment }
+  # 
+  # subject { comment }
+  # 
+  # it { should respond_to(:user) }
+  # it { should respond_to(:topic) }
+  
 end
