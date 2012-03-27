@@ -12,10 +12,14 @@ gem 'jquery-rails', '2.0.0'
 gem "devise", "~> 2.0.4"
 
 # Deployment 
-gem 'unicorn'
+gem "unicorn", "~> 4.2.1"
 
 group :production do
   gem "pg", "~> 0.13.2"
+end
+
+group :development do
+  gem "capistrano", "~> 2.11.2"
 end
 
 group :development, :test do
