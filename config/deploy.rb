@@ -1,24 +1,31 @@
-set :application, "coder_x_coder"
+require "bundler/capistrano"
 
-role :web, "106.187.89.176"                          # Your HTTP server, Apache/etc
-role :app, "106.187.89.176"                          # This may be the same as your `Web` server
-role :db,  "106.187.89.176", :primary => true # This is where Rails migrations will run
-
-set :user, "levey"
-set :group, "admin"
-set :use_sudo, false
-
+set :scm,             :git
+set :repository,      "git@bitbucket.org:levey/coderxcoder.git"
+set :branch,          "master"
+set :migrate_target,  :current
+set :ssh_options,     { :forward_agent => true }
+set :rails_env,       "production"
+set :deploy_to,       "/home/levey/apps/coder_x_coder"
 set :normalize_asset_timestamps, false
-set :deploy_via, :remote_cache
-set :deploy_to, "/home/#{user}/apps/#{application}"
 
-set :repository,  "git@bitbucket.org:levey/coderxcoder.git"
-set :branch, "master"
-set :scm, :git
-ssh_options[:forward_agent] = true
-set :git_shallow_clone, 1
+set :user,            "levey"
+set :group,           "admin"
+set :use_sudo,        false
+
+role :web,    "106.187.89.176"
+role :app,    "106.187.89.176"
+role :db,     "106.187.89.176", :primary => true
 
 
+default_environment["RAILS_ENV"] = 'production'
+
+default_environment["PATH"]         = "/home/ruby/.rvm/gems/ruby-1.9.3-p125/bin:/home/ruby/.rvm/gems/ruby-1.9.3-p125@global/bin:/home/ruby/.rvm/rubies/ruby-1.9.3-p125/bin:/home/ruby/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+default_environment["GEM_HOME"]     = "/home/ruby/.rvm/gems/ruby-1.9.3-p125"
+default_environment["GEM_PATH"]     = "/home/ruby/.rvm/gems/ruby-1.9.3-p125:/home/ruby/.rvm/gems/ruby-1.9.3-p125@global"
+default_environment["RUBY_VERSION"] = "ruby-1.9.3-p125"
+
+# unicorn.rb 路径
 set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
 
 namespace :deploy do
@@ -65,21 +72,9 @@ task :compile_assets, :roles => :web do
   run "cd #{deploy_to}/current/; bundle exec rake assets:precompile"  	
 end
 
-task :mongoid_create_indexes, :roles => :web do
-  run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec rake db:mongoid:create_indexes"
-end
-
-task :mongoid_migrate_database, :roles => :web do
+task :migrate_database, :roles => :web do
   run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec rake db:migrate"
 end
 
-after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :install_gems, :compile_assets, :mongoid_create_indexes, :mongoid_migrate_database
-
-
-set :default_environment, {
-  'PATH' => "/home/levey/.rvm/gems/ruby-1.9.3-p125/bin:/home/levey/.rvm/gems/ruby-1.9.3-p125@global/bin:/home/ruby/.rvm/rubies/ruby-1.9.3-p125/bin:/home/ruby/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games",
-  'RUBY_VERSION' => 'ruby-1.9.3-p125',
-  'GEM_HOME' => '/home/levey/.rvm/gems/ruby-1.9.3-p125',
-  'GEM_PATH' => '/home/levey/.rvm/gems/ruby-1.9.3-p125:/home/levey/.rvm/gems/ruby-1.9.3-p125@global'
-}
+after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :install_gems, :compile_assets, :migrate_database
 
