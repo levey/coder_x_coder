@@ -7,7 +7,7 @@ worker_processes 4
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "/tmp/coder_x_coder.socket", :backlog => 64
+listen "/home/levey/apps/coder_x_coder/current/tmp/sockets/unicorn.sock", :backlog => 64
 
 # Preload our app for more speed
 preload_app true
@@ -15,7 +15,7 @@ preload_app true
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
 
-pid "/tmp/unicorn.coder_x_coder.pid"
+pid "/home/levey/apps/coder_x_coder/current/tmp/pids/unicorn.pid"
 
 # Production specific settings
 if env == "production"
@@ -50,15 +50,3 @@ before_fork do |server, worker|
   end
 end
 
-after_fork do |server, worker|
-  # the following is *required* for Rails + "preload_app true",
-  if defined?(ActiveRecord::Base)
-    ActiveRecord::Base.establish_connection
-  end
-
-  # if preload_app is true, then you may also want to check and
-  # restart any other shared sockets/descriptors such as Memcached,
-  # and Redis.  TokyoCabinet file handles are safe to reuse
-  # between any number of forked children (assuming your kernel
-  # correctly implements pread()/pwrite() system calls)
-end
