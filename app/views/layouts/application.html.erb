@@ -4,7 +4,7 @@
   <title><%= generate_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
-	<link rel="icon" href="favicon.png" type="image/png" />
+	<link rel="icon" href="<%= asset_path("favicon.png") %>" />
   <%= csrf_meta_tags %>
 </head>
 <body>
