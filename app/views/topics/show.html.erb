@@ -17,7 +17,7 @@
 	</div>
 	<hr />
 	
-	<p class="content-topic-detail"><%= simple_format h(@topic.content) %></p>
+  <p class="content-topic-detail"><%= generate_markdown(@topic.content) %>  </p>
 </div>
 
 <% if !@comments.empty? %>
