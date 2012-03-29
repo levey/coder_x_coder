@@ -1,3 +1,8 @@
+<p> <%= gravatar_for current_user, size:36, round:true %>
+<%= "Currently you are using #{current_user.email}" %>
+<br />
+<a target="_blank" href="http://en.gravatar.com/">Change your avatar at Gravatar.com.</a></p>
+<br />
 <%= form_for current_user.profile do |f| %>
 
 	<%= render 'shared/error_messages', :object => f.object %>
