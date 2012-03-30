@@ -4,7 +4,7 @@
 
 	<p class="timestamp">
 		<% comment_count =  %>
-	  <span class="summary link"><%= link_to topic.user.username, topic.user %></span> <%= "posted #{time_ago_in_words(topic.created_at)} ago. #{pluralize(topic.comments_count, "comment")}. " %>
+	  <span class="grayfont link"><%= link_to topic.user.username, topic.user %></span> <%= "posted #{time_ago_in_words(topic.created_at)} ago. #{pluralize(topic.comments_count, "comment")}. " %>
 	</p>
 </div>
 <hr />
