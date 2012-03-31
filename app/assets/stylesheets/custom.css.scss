@@ -229,6 +229,21 @@ hr {
 	}
 }
 
+p.label_checkbox_pair {
+	clear: both;
+	float: none;
+	position: relative;
+}
+p.label_checkbox_pair input {
+	position: absolute;
+}
+p.label_checkbox_pair label {
+	display: block;
+	margin-left: 30px;
+	width: 200px;
+}
+
+
 #error_explanation {
   color:#f00;
 	span {
