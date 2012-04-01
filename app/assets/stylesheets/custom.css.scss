@@ -213,11 +213,38 @@ body {
 
 
 .cell {
-  border-bottom: 1px solid #EEE;
 	margin:0px -10px;
-	padding:5px 10px;
+	padding:5px 10px;	
 }
 
+.bottomborder {
+	border-bottom: 1px solid #EEE;
+}
+
+.separator5 {
+	display:block;
+	height:5px;
+}
+
+.separator6 {
+	display:block;
+	height:6px;
+}
+
+.separator7 {
+	display:block;
+	height:7px;
+}
+
+.separator8 {
+	display:block;
+	height:8px;
+}
+
+.separator10 {
+	display:block;
+	height:10px;
+}
 
 /* forms */
 
@@ -240,7 +267,6 @@ p.label_checkbox_pair label {
 	width: 200px;
 }
 
-
 #error_explanation {
   color:#f00;
 	span {
@@ -262,11 +288,6 @@ p.label_checkbox_pair label {
 /* profile */
 
 .profile-header {
-	padding-top: 5px;
-}
-
-.profile-header img {
-	margin-top: -5px;
 }
 
 .profile-header a {
@@ -322,12 +343,7 @@ p.label_checkbox_pair label {
 	font-weight:bolder;
 }
 
-.topic .comment {
-	display: block;
-	padding-top: 5px;
-}
-
-.title {
+.topic-title {
 	font-size: 16px;
 	font-weight: 500;
 	a {
@@ -335,11 +351,10 @@ p.label_checkbox_pair label {
 	}
 	a:hover {
 		color: #000;
-/*		text-decoration: none;*/
 	}
 }
 
-.timestamp {
+.topic-info {
   color: $lightGrayFont;
 }
 
@@ -364,12 +379,7 @@ p.label_checkbox_pair label {
 	color:$lightGrayFont;
 }
 
-.title-topic-detail {
-	font-size: 18px;
-	font-weight:bold;
-}
-
-.content-topic-detail {
+.topic-content {
 	overflow:hidden;	
 	word-wrap:break-word; 
 	font-size: 14px;

@@ -7,16 +7,17 @@
 		  <%= devise_error_messages! %>
 
 		  <%= f.label :email %>
-		  <%= f.email_field :email %>
+		  <%= f.email_field :email, class: "input-field" %>
 
 		  <%= f.label :password %> 
-		  <%= f.password_field :password, :autocomplete => "off" %>
+		  <%= f.password_field :password, :autocomplete => "off", class: "input-field" %>
 
 		  <%= f.label :password_confirmation %>
-		  <%= f.password_field :password_confirmation %>
+		  <%= f.password_field :password_confirmation, class: "input-field" %>
 
 			<%= f.label :current_password %> 
-		  <%= f.password_field :current_password %>
+		  <%= f.password_field :current_password, class: "input-field" %>
+			<br />
 			<br />
 		  <%= f.submit "Update",  class: "btn btn-primary btn-large", style: "width:330px"%>
 		<% end %>

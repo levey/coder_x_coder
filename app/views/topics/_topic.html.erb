@@ -1,4 +1,4 @@
-<div class="cell">
+<div class="cell bottomborder">
 	<table>
 		<tbody>
 			<tr>
@@ -7,12 +7,15 @@
 						 <%= link_to gravatar_for(topic.user), topic.user %>
 					</div>
 				</td>
-				<td><p class="title"><%= link_to topic.title, topic %></p>
-
-				<p class="timestamp">
-					<% comment_count =  %>
-				  <span class="grayfont link"><%= link_to topic.user.username, topic.user %></span> <%= "posted #{time_ago_in_words(topic.created_at)} ago. #{pluralize(topic.comments_count, "comment")}. " %>
-				</p>
+				<td>
+					<div class="topic-title"><%= link_to topic.title, topic %></div>
+					<div class="separator7"></div>
+					<div class="topic-info">
+					  <span class="grayfont link">
+							<%= link_to topic.user.username, topic.user %>
+						</span>
+						<%= "posted #{time_ago_in_words(topic.created_at)} ago. #{pluralize(topic.comments_count, "comment")}. " %>
+					</div>
 				</td>
 			</tr>
 		</tbody>

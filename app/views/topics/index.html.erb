@@ -1,8 +1,9 @@
 <div class="rect">
-	<div class="cell">
+	<div class="cell bottomborder">
 		<h3>Recent Topics
 			<%= link_to "New Topic", new_topic_path, class: "btn btn-new-topic" %>
 		</h3>
+		<span class="separator10" />
 	</div>
 	<% if @topics.any? %>
 		<%= render partial: 'topic', collection: @topics %>

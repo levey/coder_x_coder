@@ -3,14 +3,37 @@
 <% profile = @user.profile %>
 
 <div class="rect">
-	<h1 class="profile-header">
-		<%= gravatar_for @user %>
-		<span><%= @user.username %></span>
-		<% if @user == current_user %>
-			<%= link_to "Edit Profile",edit_profile_path(@user.profile), class: "btn" %>
-		<% end %>
-	</h1>
-	<hr />
+	
+	<div class="cell bottomborder">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<div class="gravatar">
+							 <%= gravatar_for(@user) %>
+						</div>
+					</td>
+					<td>
+						<h1>
+							<span><%= @user.username %></span>
+						</h1>
+					</td>
+					
+					<td width="800px", align="right">
+						<strong>
+						<% if @user == current_user %>
+							<%= link_to "Edit Profile",edit_profile_path(@user.profile), class: "btn" %>
+						<% end %>
+						</strong>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="separator10"></div>
+	
+	
 
 	<% if !profile.realname.blank? || !profile.location.blank? || !profile.company.blank? || !profile.blog.blank? || !profile.github.blank? ||
 		!profile.twitter.blank? || !profile.weibo.blank? || !profile.bio.blank? %>
@@ -70,26 +93,30 @@
 
 <% if @user.topics.any? %>
 <div class="rect">
-		<h3>
-			<%= "#{@user.username}'s topics" %>
+	<div class="cell bottomborder">
+		<h3><%= "#{@user.username}'s topics" %>
 		</h3>
-		<hr />
-		<ul>
-			<%= render partial: 'topics/created_topic', collection: @created_topics %>
-		</ul>
-		<%= will_paginate @created_topics %>
+		<div class="separator10"></div>
+	</div>
+	<div class="separator10"></div>
+	<ul>
+		<%= render partial: 'topics/created_topic', collection: @created_topics %>
+	</ul>
+	<%= will_paginate @created_topics %>
 </div>
 <% end %>
 
 <% if @user.comments.any? %>
 <div class="rect">
-		<h3>
-			<%= "#{@user.username}'s commented topics" %>
+	<div class="cell bottomborder">
+		<h3><%= "#{@user.username}'s topics" %>
 		</h3>
-		<hr />
-		<ul>
-			<%= render partial: 'topics/commented_topic', collection: @commented_topics %>
-		</ul>
-		<%= will_paginate  @commented_topics %>
+		<div class="separator10"></div>
+	</div>
+	<div class="separator10"></div>
+	<ul>
+		<%= render partial: 'topics/commented_topic', collection: @commented_topics %>
+	</ul>
+	<%= will_paginate  @commented_topics %>
 </div>
 <% end %>
