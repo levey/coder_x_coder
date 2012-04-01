@@ -1,12 +1,10 @@
 <div class="rect">
-
 		<div class="topic-header">
 			<h3>Recent Topics
 				<%= link_to "New Topic", new_topic_path, class: "btn btn-new-topic" %>
 			</h3>
 		</div>
 		<% if @topics.any? %>
-
 		<hr />
 	  <ol class="topics">
 	    <%= render partial: 'topic', collection: @topics %>

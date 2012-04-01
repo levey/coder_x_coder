@@ -172,13 +172,6 @@ body {
   border-radius: 4px;
 }
 
-hr {
-	margin-top:10px;
-	margin-bottom:10px;
-	margin-left:-10px;
-	margin-right:-10px;
-}
-
 .center {
   text-align: center;
   h1 {
@@ -223,10 +216,8 @@ hr {
 
 /* forms */
 
-.user-form {
-	input {
-		width: 320px;
-	}
+.input-field {
+	width: 320px;
 }
 
 p.label_checkbox_pair {
@@ -235,6 +226,7 @@ p.label_checkbox_pair {
 	position: relative;
 }
 p.label_checkbox_pair input {
+	margin-left: 0px;
 	position: absolute;
 }
 p.label_checkbox_pair label {
@@ -316,12 +308,7 @@ p.label_checkbox_pair label {
 /* topic */
 
 .topics {
-  list-style: none;
   margin: 10px 0 0 0;
-}
-
-.topic-header {
-	padding-top: 8px;
 }
 
 .topic-new-header {
@@ -339,6 +326,7 @@ p.label_checkbox_pair label {
 }
 
 .topic .comment {
+	display: block;
 	padding-top: 5px;
 }
 
