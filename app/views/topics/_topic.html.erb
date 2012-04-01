@@ -1,10 +1,20 @@
-<%= link_to gravatar_for(topic.user), topic.user %>
-<div class="topic">
-	<p class="title"><%= link_to topic.title, topic %></p>
+<div class="cell">
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<div class="gravatar">
+						 <%= link_to gravatar_for(topic.user), topic.user %>
+					</div>
+				</td>
+				<td><p class="title"><%= link_to topic.title, topic %></p>
 
-	<p class="timestamp">
-		<% comment_count =  %>
-	  <span class="grayfont link"><%= link_to topic.user.username, topic.user %></span> <%= "posted #{time_ago_in_words(topic.created_at)} ago. #{pluralize(topic.comments_count, "comment")}. " %>
-	</p>
+				<p class="timestamp">
+					<% comment_count =  %>
+				  <span class="grayfont link"><%= link_to topic.user.username, topic.user %></span> <%= "posted #{time_ago_in_words(topic.created_at)} ago. #{pluralize(topic.comments_count, "comment")}. " %>
+				</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
-<hr />

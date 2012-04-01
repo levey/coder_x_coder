@@ -181,14 +181,12 @@ body {
 
 
 .gravatar {
+	background-color: #FFFFFF;
+  border: 1px solid #DDD;
   float: left;
-  margin-right: 10px;
-	margin-bottom: 8px;
-	border: 1px solid #D1D1D1;
-	padding: 2px;
-	background-color: white;
-	float: left;
-	line-height: 0;
+  line-height: 0;
+  margin-right: 0.7em;
+  padding: 2px;
 }
 
 .gravatar-header {
@@ -211,6 +209,13 @@ body {
 .link a:hover {
 	color: $highlightedAnchor;
 	text-decoration: none;
+}
+
+
+.cell {
+  border-bottom: 1px solid #EEE;
+	margin:0px -10px;
+	padding:5px 10px;
 }
 
 
@@ -306,14 +311,6 @@ p.label_checkbox_pair label {
 
 
 /* topic */
-
-.topics {
-  margin: 10px 0 0 0;
-}
-
-.topic-new-header {
-  padding-top: 0px
-}
 
 .btn-new-topic {
 	margin-bottom:20px;
