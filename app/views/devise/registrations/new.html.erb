@@ -9,16 +9,17 @@
 		  <%= devise_error_messages! %>
 
 			<%= f.label :username %>
-		  <%= f.text_field :username %>
+		  <%= f.text_field :username, class: "input-field" %>
 	
 		  <%= f.label :email %>
-		  <%= f.email_field :email %>
+		  <%= f.email_field :email, class: "input-field" %>
 
 		  <%= f.label :password %>
-		  <%= f.password_field :password %>
+		  <%= f.password_field :password, class: "input-field" %>
 
 		  <%= f.label :password_confirmation %>
-		  <%= f.password_field :password_confirmation%>
+		  <%= f.password_field :password_confirmation, class: "input-field" %>
+			<br />
 			<br />
 		  <%= f.submit "Sign up", class: "btn btn-primary btn-large", 
 			             style: "width: 330px" %>

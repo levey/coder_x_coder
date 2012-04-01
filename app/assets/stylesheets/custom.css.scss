@@ -114,6 +114,14 @@ div.subnav .nav>li>.dropdown-toggle{background-color:transparent;color:#4183c4;}
 .navbar .nav-collapse.in>.nav li>a{color:#333333;}.navbar .nav-collapse.in>.nav li>a .caret{border-top-color:#999999;}
 .navbar .nav-collapse.in>.nav li>a:hover{text-shadow:none;color:#4183c4;background-color:transparent;}.navbar .nav-collapse.in>.nav li>a:hover .caret{border-top-color:#ffffff;}
 
+
+code {
+  background-color: #f7f7f9;
+  color: #333;
+  border: 0px solid #e1e1e8;
+}
+
+
 $grayFont: #666;
 $lightGrayFont: #999;
 $darkGrayFont: #333;
@@ -164,13 +172,6 @@ body {
   border-radius: 4px;
 }
 
-hr {
-	margin-top:10px;
-	margin-bottom:10px;
-	margin-left:-10px;
-	margin-right:-10px;
-}
-
 .center {
   text-align: center;
   h1 {
@@ -180,14 +181,12 @@ hr {
 
 
 .gravatar {
+	background-color: #FFFFFF;
+  border: 1px solid #DDD;
   float: left;
-  margin-right: 10px;
-	margin-bottom: 8px;
-	border: 1px solid #D1D1D1;
-	padding: 2px;
-	background-color: white;
-	float: left;
-	line-height: 0;
+  line-height: 0;
+  margin-right: 0.7em;
+  padding: 2px;
 }
 
 .gravatar-header {
@@ -198,9 +197,10 @@ hr {
   border-radius: 3px;
 }
 
-.summary {
+.grayfont {
 	color: $lightGrayFont;
 }
+
 .link a {
 	color: $lightGrayFont;
 	font-weight:600;
@@ -212,13 +212,34 @@ hr {
 }
 
 
+.cell {
+  border-bottom: 1px solid #EEE;
+	margin:0px -10px;
+	padding:5px 10px;
+}
+
+
 /* forms */
 
-.user-form {
-	input {
-		width: 320px;
-	}
+.input-field {
+	width: 320px;
 }
+
+p.label_checkbox_pair {
+	clear: both;
+	float: none;
+	position: relative;
+}
+p.label_checkbox_pair input {
+	margin-left: 0px;
+	position: absolute;
+}
+p.label_checkbox_pair label {
+	display: block;
+	margin-left: 30px;
+	width: 200px;
+}
+
 
 #error_explanation {
   color:#f00;
@@ -291,19 +312,6 @@ hr {
 
 /* topic */
 
-.topics {
-  list-style: none;
-  margin: 10px 0 0 0;
-}
-
-.topic-header {
-	padding-top: 8px;
-}
-
-.topic-new-header {
-  padding-top: 0px
-}
-
 .btn-new-topic {
 	margin-bottom:20px;
 	float:right;
@@ -315,6 +323,7 @@ hr {
 }
 
 .topic .comment {
+	display: block;
 	padding-top: 5px;
 }
 
