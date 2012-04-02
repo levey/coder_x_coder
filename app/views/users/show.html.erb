@@ -72,17 +72,18 @@
 				<% end %>			
 			</dl>
 		</div>
+		
 		<% if !profile.bio.empty? %>
-			<div class="inner bio"><%= profile.bio %>	</div>	
+			<div class="inner bio"><%= profile.bio %></div>
 		<% end %>
 	<% else %>
-		<span class="bio"> 
+		<div class="inner bio"> 
 			<% if current_user?(@user) %>
 				You have not set up your profile yet!
 			<% else %>
 				This guy have not set up his profile yet!
 			<% end %>
-		</span>		
+		</div>		
 	<% end %>
 </div>
 

@@ -203,9 +203,12 @@ body {
 }
 
 .gravatar {
-	background-color: #FFFFFF;
+	background:#fff image-url('cxc-avatar.png');
+	background-repeat:no-repeat;
   border: 1px solid #DDD;
   float: left;
+	height:48px;
+	width:48px;
   line-height: 0;
   margin-right: 0.7em;
   padding: 2px;
@@ -340,7 +343,6 @@ p.label_checkbox_pair label {
 
 
 /* topic */
-
 .btn-new-topic {
 	margin-bottom:20px;
 	float:right;
