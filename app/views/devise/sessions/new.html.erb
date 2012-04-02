@@ -1,8 +1,9 @@
 <% provide :title, "Sign in" %>
 <div class="rect">
-	<h3>Sign in</h3>
-  <hr	/>
-	<div>
+	<div class="inner bottomborder">
+		<h3>Sign in</h3>
+	</div>
+	<div class="inner">
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
  			<%= f.label :login %>
 		  <%= f.text_field :login, class: "input-field" %>

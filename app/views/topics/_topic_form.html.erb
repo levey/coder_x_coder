@@ -1,12 +1,15 @@
 <%= form_for(@topic) do |f| %>
-	<div class="topic-header">
+
+
+	<div class="inner bottomborder">
 		<h3><%= locals[:info_title] %>
 			<%= f.submit locals[:action_btn_title], class: "btn btn-post-topic" %>
 		</h3>
 	</div>
-  <hr style="margin-top:20px" />
-	<%= render 'shared/error_messages', object: f.object %>
+	<div class="inner bottomborder">
+		<%= render 'shared/error_messages', object: f.object %>
 	
-	<%= f.text_field :title, class: "input-topic-title", placeholder: "Title" %>
-	<%= f.text_area :content, class: "input-topic-content", placeholder: "Content" %>
+		<%= f.text_field :title, class: "input-topic-title", placeholder: "Title" %>
+		<%= f.text_area :content, class: "input-topic-content", placeholder: "Content" %>
+	</div>
 <% end %>

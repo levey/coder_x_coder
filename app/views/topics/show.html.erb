@@ -3,9 +3,9 @@
 <div class="rect">
 	
 <% if @topic.content.empty? %>
-	<div class="cell">
+	<div class="inner">
 <% else %>
-	<div class="cell bottomborder">
+	<div class="inner bottomborder">
 <% end %>
 		<table>
 			<tbody>
@@ -37,18 +37,18 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="separator10"></div>
-  <div class="topic-content"><%= generate_markdown(@topic.content) %>  </div>
+  <div class="inner topic-content"><%= generate_markdown(@topic.content) %>  </div>
 </div>
 
 <% if !@comments.empty? %>
 	<div class="rect">
-		<div class= "cell bottomborder">
+		<div class= "inner bottomborder">
 			<h4><%= "#{@topic.comments_count} comments" %></h4>
-			<div class="separator7"></div>
 		</div>
-		<%= render partial: 'comments/comment', collection: @comments, locals: { page: @page } %>
-		<%= will_paginate @comments %>
+		<div class="h-inner">
+			<%= render partial: 'comments/comment', collection: @comments, locals: { page: @page } %>
+			<%= will_paginate @comments %>			
+		</div>
 	</div>
 <% end %>
 

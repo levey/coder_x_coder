@@ -9,10 +9,9 @@
 				<ul class="nav pull-right">
 					<% if signed_in? %>
 						<li id="fat-menu" class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	              <%= gravatar_for current_user, size: 20, round: true %> <%= current_user.username %> <b class="caret"></b>
-	            </a>
-          
+		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<%= header_gravatar_for current_user %> <%= current_user.username %><b class="caret"></b>
+		            </a>
 							<ul class="dropdown-menu">
 								<li><%= link_to "Profile", current_user %></li>
 	 							<li><%= link_to "Account", edit_user_registration_path(current_user) %></li>

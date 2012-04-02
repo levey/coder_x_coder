@@ -146,6 +146,18 @@ body {
 	background:#eee image-url('bg.jpeg');
 }
 
+.headcell {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 19.5px;
+  line-height: 36px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+
 .footer {
 	text-align:center;
 	margin:20px;
@@ -163,13 +175,24 @@ body {
 	@extend .row;
 	margin-left:0px;
 	margin-bottom:20px;
-  /*min-height: 20px;*/
-  padding: 10px;
+/*  padding: 10px;*/
   background-color: #fff;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+}
+
+.inner {
+	padding: 10px;
+}
+
+.v-inner {
+	padding:10px 0px;
+}
+
+.h-inner {
+	padding:0px 10px;
 }
 
 .center {
@@ -178,7 +201,6 @@ body {
     margin-bottom: 10px;
   }
 }
-
 
 .gravatar {
 	background-color: #FFFFFF;
@@ -190,11 +212,11 @@ body {
 }
 
 .gravatar-header {
-  float: left;
-  margin-right: 10px;
+	float: left;
+	margin-right: 10px;
 	-webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .grayfont {
@@ -287,28 +309,14 @@ p.label_checkbox_pair label {
 
 /* profile */
 
-.profile-header {
-}
-
-.profile-header a {
-	float:right;
-	margin-top: 5px;
-}
-
 .profile-list dl{
-	margin:0px;
 	font-size: 12px;
 }
 
 .profile-list dl dt { 
-	margin:0;
 	float:left;
 	width:150px;
 	color:$grayFont;
-}
-
-.profile-list dl dd {
-	margin:0;
 }
 
 .bio {
@@ -339,8 +347,9 @@ p.label_checkbox_pair label {
 }
 
 .btn-post-topic {
+	margin-bottom:10px;
 	float:right;
-	font-weight:bolder;
+	font-weight:bold;
 }
 
 .topic-title {

@@ -1,9 +1,10 @@
 <% provide :title, "Sign up" %>
 
 <div class="rect">
-	<h3>Join Coder x Coder</h3>
-	<hr />
-	<div class="user-form">
+	<div class="inner bottomborder">
+		<h3>Sign up</h3>
+	</div>
+	<div class="inner">
 
 		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 		  <%= devise_error_messages! %>

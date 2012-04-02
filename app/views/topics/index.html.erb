@@ -1,12 +1,13 @@
 <div class="rect">
-	<div class="cell bottomborder">
+	<div class="inner bottomborder">
 		<h3>Recent Topics
 			<%= link_to "New Topic", new_topic_path, class: "btn btn-new-topic" %>
 		</h3>
-		<span class="separator10" />
 	</div>
-	<% if @topics.any? %>
-		<%= render partial: 'topic', collection: @topics %>
-		<%= will_paginate @topics %>
-	<% end %>	
+	<div class="h-inner">
+		<% if @topics.any? %>
+			<%= render partial: 'topic', collection: @topics %>
+			<%= will_paginate @topics %>
+		<% end %>			
+	</div>
 </div>

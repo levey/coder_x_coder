@@ -2,13 +2,12 @@
 
 <% profile = @user.profile %>
 
-<div class="rect">
-	
-	<div class="cell bottomborder">
+<div class="rect">	
+	<div class="inner bottomborder">
 		<table>
 			<tbody>
 				<tr>
-					<td>
+					<td width="80px">
 						<div class="gravatar">
 							 <%= gravatar_for(@user) %>
 						</div>
@@ -29,15 +28,12 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
-	
-	<div class="separator10"></div>
-	
+	</div>	
 	
 
 	<% if !profile.realname.blank? || !profile.location.blank? || !profile.company.blank? || !profile.blog.blank? || !profile.github.blank? ||
 		!profile.twitter.blank? || !profile.weibo.blank? || !profile.bio.blank? %>
-		<div class="profile-list">
+		<div class="h-inner profile-list bottomborder">
 			<dl>
 				<% if !profile.realname.empty? %>
 					<dt>Real Name</dt>
@@ -77,8 +73,7 @@
 			</dl>
 		</div>
 		<% if !profile.bio.empty? %>
-			<hr />
-			<span class="bio"><%= profile.bio %>	</span>	
+			<div class="inner bio"><%= profile.bio %>	</div>	
 		<% end %>
 	<% else %>
 		<span class="bio"> 
@@ -93,13 +88,11 @@
 
 <% if @user.topics.any? %>
 <div class="rect">
-	<div class="cell bottomborder">
-		<h3><%= "#{@user.username}'s topics" %>
-		</h3>
-		<div class="separator10"></div>
+	<div class="inner bottomborder">
+		<h3><%= "#{@user.username}'s topics" %></h3>
 	</div>
-	<div class="separator10"></div>
-	<ul>
+	
+	<ul class="v-inner">
 		<%= render partial: 'topics/created_topic', collection: @created_topics %>
 	</ul>
 	<%= will_paginate @created_topics %>
@@ -108,13 +101,11 @@
 
 <% if @user.comments.any? %>
 <div class="rect">
-	<div class="cell bottomborder">
-		<h3><%= "#{@user.username}'s topics" %>
-		</h3>
-		<div class="separator10"></div>
+	<div class="inner bottomborder">
+		<h3><%= "#{@user.username}'s comments" %></h3>
 	</div>
-	<div class="separator10"></div>
-	<ul>
+	
+	<ul class="v-inner">
 		<%= render partial: 'topics/commented_topic', collection: @commented_topics %>
 	</ul>
 	<%= will_paginate  @commented_topics %>
