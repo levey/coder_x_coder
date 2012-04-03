@@ -4,13 +4,13 @@ module UsersHelper
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     size = options[:size]
     gravatar_url = "http://gravatar.com/avatar/#{gravatar_id}.png?size=#{size}"
-    image_tag(gravatar_url, alt: user.username, width:"#{size}px", height:"#{size}px")  
+    image_tag(gravatar_url, width:"#{size}px", height:"#{size}px")  
   end
 
   def header_gravatar_for(user)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     gravatar_url = "http://gravatar.com/avatar/#{gravatar_id}.png?size=20"
-    image_tag(gravatar_url, alt: user.username, class: "gravatar-header")  
+    image_tag(gravatar_url, class: "gravatar-header")  
   end
   
   
