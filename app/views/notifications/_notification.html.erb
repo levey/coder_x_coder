@@ -1,0 +1,23 @@
+<div class="cell bottomborder">
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<div class="gravatar">
+						<%= link_to gravatar_for(notification.sender), notification.sender %>
+					</div>
+				</td>
+				<td>
+					<span class="grayfont notification">
+					<%= link_to notification.sender.username, notification.sender %>
+					commented your topic
+					<%= link_to notification.notifiable.title, notification.notifiable %>
+					<%= "#{time_ago_in_words(notification.created_at)} ago." %></span>
+					<div class="separator5"></div>
+					<div class="comment-content"><%= notification.content %></div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

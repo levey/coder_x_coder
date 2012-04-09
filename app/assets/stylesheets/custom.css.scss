@@ -162,7 +162,7 @@ body {
 	text-align:center;
 	margin:20px;
 	span {
-		text-shadow: 0em 0.1em 0em #fff
+		text-shadow: 0em 0.0em 0em #fff
 	}
 }
 
@@ -233,7 +233,7 @@ body {
 
 .link a:hover {
 	color: $highlightedAnchor;
-	text-decoration: none;
+/*	text-decoration: none;*/
 }
 
 
@@ -409,3 +409,17 @@ p.label_checkbox_pair label {
 	max-width:850px;
 	float: left;
 }
+
+/*notification*/
+.notification {
+	a {
+		color: $highlightedAnchor;
+		font-weight:600;
+	}
+
+	a:hover {
+		color: $highlightedAnchor;
+	}
+	
+}
+

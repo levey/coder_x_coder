@@ -7,12 +7,20 @@
 					<li><%= link_to "Topics", topics_path %></li>
 				</ul>
 				<ul class="nav pull-right">
-					<% if signed_in? %>
+					<% if signed_in? %>					
+					
 						<li id="fat-menu" class="dropdown">
 		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<%= header_gravatar_for current_user %> <%= current_user.username %><b class="caret"></b>
 		            </a>
 							<ul class="dropdown-menu">
+								<% c = current_user.unread_topic_count %>
+								<% if c > 0 %>
+									<li><%= link_to "Notifications(#{c})", notifications_path %></li>
+								<% else %>
+									<li><%= link_to "Notifications", notifications_path %></li>
+								<% end %>
+								
 								<li><%= link_to "Profile", current_user %></li>
 	 							<li><%= link_to "Account", edit_user_registration_path(current_user) %></li>
 	              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>

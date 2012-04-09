@@ -1,0 +1,20 @@
+<div class="rect">
+	<div class="inner bottomborder">
+		<h3>Notifications
+			<!-- <%= link_to "Clear","#", class: "btn btn-danger btn-new-topic" %> -->
+		</h3>
+	</div>
+
+	<% if @notifications.any? %>	
+		<div class="h-inner">
+				<%= render partial: 'notification', collection: @notifications %>
+				<%= will_paginate @notifications %>
+		</div>
+	<% else %>
+		<div class="inner">
+			There is no notification.
+		</div>
+	<% end %>			
+	
+	
+</div>
