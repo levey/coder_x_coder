@@ -242,6 +242,10 @@ body {
 	padding:5px 10px;	
 }
 
+.mouse-in-cell {
+	background:#fcfcfc;
+}
+
 .bottomborder {
 	border-bottom: 1px solid #EEE;
 }
@@ -269,6 +273,10 @@ body {
 .separator10 {
 	display:block;
 	height:10px;
+}
+
+.clickable {
+	cursor: pointer;
 }
 
 /* forms */
@@ -408,6 +416,19 @@ p.label_checkbox_pair label {
 	word-wrap:break-word; 
 	max-width:850px;
 	float: left;
+	
+	a {
+		color: $lightGrayFont;
+		font-weight:500;
+	}
+
+	a:hover {
+		color: $highlightedAnchor;
+	}
+}
+
+.mention_button {
+	display:none;
 }
 
 /*notification*/
@@ -421,5 +442,8 @@ p.label_checkbox_pair label {
 		color: $highlightedAnchor;
 	}
 	
+	span {
+		background:#FFF6A9;
+	}
 }
 

@@ -1,4 +1,4 @@
-<div class="cell bottomborder">
+<div class="cell bottomborder comment">
 	<table>
 		<tbody>
 			<tr>
@@ -8,12 +8,15 @@
 					</div>
 				</td>
 				<td>
-					<div class="separator5"></div>
-					<div class="separator5"></div>
+					<div class="separator10"></div>
 					<span class="grayfont link">
 					<%= "\##{ (page.to_i - 1) * 30 + comment_counter + 1 } " %>
 					<%= link_to current_user?(comment.user) ? "You" : comment.user.username , comment.user %>
-					<%= "commented #{time_ago_in_words(comment.created_at)} ago." %></span>
+					<%= "#{time_ago_in_words(comment.created_at)} ago." %></span>
+					<% if user_signed_in? && !current_user?(comment.user)  %>
+						<%= link_to "Reply", "##", class: 'mention_button',remote: true, data: {mention: "@#{comment.user.username}"} %>
+							<!-- <%= image_tag 'reply.png', :class => 'clickable mention_button', :data => {:mention => "@#{comment.user.username}"} %> -->
+					<% end %>
 					<div class="separator5"></div>
 					<div class="comment-content"><%= generate_markdown(comment.content) %></div>
 					</div>
