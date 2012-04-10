@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile
   has_many :topics, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  has_many :notifications, class_name: "Notification", foreign_key: "receiver_id"
+  
   before_create :create_profile
     
   def self.find_for_database_authentication(warden_conditions)
@@ -31,6 +32,10 @@ class User < ActiveRecord::Base
   def commented_topics
     topic_ids = self.comments.uniq.collect(&:topic_id)
     Topic.where(id: topic_ids).order('created_at DESC')
+  end
+  
+  def unread_topic_count
+    self.notifications.where(read: false).count
   end
   
   private

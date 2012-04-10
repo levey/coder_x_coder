@@ -1,18 +1,20 @@
 CoderXCoder::Application.routes.draw do
+  
   devise_for :users
   resources :users
   resources :profiles
   
+  resources :notifications
+  
   resources :users do
     resources :topics
+    resources :notifications
+    resources :comments
   end
   
   resources :topics do
     resources :comments
-  end
-  
-  resources :comments
-  
+  end  
   
   root to: 'static_pages#home'  
 

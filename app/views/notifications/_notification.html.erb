@@ -1,0 +1,30 @@
+<div class="cell bottomborder">
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<div class="gravatar">
+						<%= link_to gravatar_for(notification.sender), notification.sender %>
+					</div>
+				</td>
+				<td>
+					<div class="notification">
+						<%= link_to notification.sender.username, notification.sender %>
+						<% if notification.notifiable.class == Topic %>
+							<span>commented</span> your topic
+							<%= link_to notification.notifiable.title, notification.notifiable %>
+							<%= "#{time_ago_in_words(notification.created_at)} ago." %>
+						<% elsif notification.notifiable.class == Comment %>
+							<span>mentioned</span> you at
+							<%= link_to notification.notifiable.topic.title, notification.notifiable.topic %>
+							<%= "#{time_ago_in_words(notification.created_at)} ago." %>
+					  <% end %>
+					</div>
+					<div class="separator5"></div>
+					<div class="comment-content"><%= simple_format process_mentions(notification.content) %></div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

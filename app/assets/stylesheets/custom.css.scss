@@ -162,7 +162,7 @@ body {
 	text-align:center;
 	margin:20px;
 	span {
-		text-shadow: 0em 0.1em 0em #fff
+		text-shadow: 0em 0.0em 0em #fff
 	}
 }
 
@@ -233,13 +233,17 @@ body {
 
 .link a:hover {
 	color: $highlightedAnchor;
-	text-decoration: none;
+/*	text-decoration: none;*/
 }
 
 
 .cell {
 	margin:0px -10px;
 	padding:5px 10px;	
+}
+
+.mouse-in-cell {
+	background:#fcfcfc;
 }
 
 .bottomborder {
@@ -269,6 +273,10 @@ body {
 .separator10 {
 	display:block;
 	height:10px;
+}
+
+.clickable {
+	cursor: pointer;
 }
 
 /* forms */
@@ -408,4 +416,34 @@ p.label_checkbox_pair label {
 	word-wrap:break-word; 
 	max-width:850px;
 	float: left;
+	
+	a {
+		color: $lightGrayFont;
+		font-weight:500;
+	}
+
+	a:hover {
+		color: $highlightedAnchor;
+	}
 }
+
+.mention_button {
+	display:none;
+}
+
+/*notification*/
+.notification {
+	a {
+		color: $highlightedAnchor;
+		font-weight:600;
+	}
+
+	a:hover {
+		color: $highlightedAnchor;
+	}
+	
+	span {
+		background:#FFF6A9;
+	}
+}
+
