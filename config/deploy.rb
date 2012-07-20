@@ -2,22 +2,22 @@
 require "bundler/capistrano"
 
 set :scm,             :git
-set :repository,      "git@bitbucket.org:levey/coderxcoder.git"
+set :repository,      [your git repository]
 set :branch,          "master"
 set :migrate_target,  :current
 set :ssh_options,     { :forward_agent => true }
 set :rails_env,       "production"
-set :deploy_to,       "/home/levey/apps/coder_x_coder"
+set :deploy_to,       ["/home/levey/apps/coder_x_coder"]
 set :normalize_asset_timestamps, false
 
-set :user,            "levey"
-set :runner,          "levey"
-set :group,           "admin"
+set :user,            [user of your server]
+set :runner,          [user of your server]
+set :group,           [group of user]
 set :use_sudo,        false
 
-role :web,    "106.187.89.176"
-role :app,    "106.187.89.176"
-role :db,     "106.187.89.176", :primary => true
+role :web,    [ip address or URL of your server]
+role :app,    [ip address or URL of your server]
+role :db,     [ip address or URL of your server], :primary => true
 
 
 default_environment["RAILS_ENV"] = 'production'
